@@ -28,3 +28,15 @@ it('should not have the title "Laravel Dusk"', function () {
     visit('https://laravel.com')
         ->assertTitleIsNot('Laravel Dusk');
 });
+
+it('may wait for url change', function () {
+    visit('https://laravel.com')
+        ->clickLink('Get Started')
+        ->waitForUrl('https://laravel.com/docs/11.x');
+});
+
+it('may wait for event', function () {
+    visit('https://laravel.com')
+        ->clickLink('Get Started')
+        ->waitForEvent('click');
+});
